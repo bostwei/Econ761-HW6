@@ -1,6 +1,6 @@
 
 
-diary 'C:\Documents and Settings\Abe\Desktop\Entry\probit\results';
+%diary 'C:\Documents and Settings\Abe\Desktop\Entry\probit\results';
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Examine entry in the airline industry using the probit model
 
