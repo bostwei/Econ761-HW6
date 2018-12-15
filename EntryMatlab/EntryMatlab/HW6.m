@@ -58,7 +58,7 @@ theta(:,7) = linspace(0,1,grid)';
 Th = [Th1(:), Th2(:),Th3(:),Th4(:),Th5(:),Th6(:),Th7(:)];
 
 SSR = zeros(length(Th),1);
-parfor i = 1: length(Th)
+for i = 1: length(Th)
     SSR(i) = Berry92(Th(i,:));
     fprintf('This is %d line:\n',i);
 end
