@@ -144,7 +144,7 @@ options = optimset('TolFun',.00000000001,'TolX',.00000001,'MaxIter',5000);
 
 %BerryGMMsim2([-2;.2;.2;.7;10],data);
 
-tic
+ticl
 f=gridSearch('BerryGMMsim2',[-.5,-.7;1.3,1.6;.08,.10;1.09,1.4;9,11],[5;5;5;5;5],data,0,0)
 f.b
 f.val

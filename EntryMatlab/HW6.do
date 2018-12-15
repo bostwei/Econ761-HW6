@@ -42,7 +42,7 @@ replace  enter97=0 if enter97==.
 
 tab enter96
 
-sum pop distance dist2 tourist city2 sharepaxdist numroute
+sum pop distance dist2 tourist city2 sharepaxdist numroute lN
 
 ****************** Question 2 ************************
 **** 	Probit model			 ********************
@@ -56,7 +56,7 @@ est store t5r2
 probit enter97 pop distance city2 sharepaxdist, vce(robust)
 est store t5r3 
 
-
+outreg2 [t5r1 t5r2 t5r3] using probit.xls, replace
 ****************** Question 2 ************************
 **** 	Probit model			 ********************
 
@@ -67,5 +67,6 @@ est store t6r1
 oprobit enter97 pop distance city2 sharepaxdist lN, vce(robust)
 est store t6r2
 
+outreg2 [t6r1 t6r2] using oprobit.xls, replace
 
 log close
