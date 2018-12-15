@@ -54,32 +54,12 @@ theta(:,5) = linspace(2,7,grid)';
 theta(:,6) = linspace(0,1,grid)';
 theta(:,7) = linspace(0,1,grid)';
 
-X= ndgrid(theta(:,1),theta(:,2),theta(:,3),theta(:,4),theta(:,5),theta(:,6),theta(:,7));
+[Th1,Th2,Th3,Th4,Th5,Th6,Th7]= ndgrid(theta(:,1),theta(:,2),theta(:,3),theta(:,4),theta(:,5),theta(:,6),theta(:,7));
+Th = [Th1(:), Th2(:),Th3(:),Th4(:),Th5(:),Th6(:),Th7(:)];
 
-dim  = (grid+1)^7; % the dimention of searching
-SSR = zeros(dim,1);
-
-for i1 = 1:grid
-    for i2 = 1:grid
-        for i3 = 1:grid
-            for i4 = 1:grid
-                for i5 = 1:grid
-                    for i6 = 1:grid
-                        for i7 = 1:grid
-                            Th1 = theta(i1,1);
-                            Th2 = theta(i2,2);
-                            Th3 = theta(i3,3);
-                            Th4 = theta(i4,4);
-                            Th5 = theta(i5,5);
-                            Th6 = theta(i6,6);
-                            Th7 = theta(i7,7);
-                            Theta = [Th1,Th2,Th3,Th4,Th5,Th6,Th7];
-%                             SSR(Th,1) = Berry92(Theta,d);
-                        end
-                    end
-                end
-            end
-        end
-    end    
+SSR = zeros(length(Th),1);
+parfor i = 1: length(Th)
+    SSR(i) = Berry92(Th(i,:));
+    fprintf('This is %d line:\n',i);
 end
 
